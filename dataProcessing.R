@@ -1,5 +1,7 @@
 setwd('~/git/dv5_performance_benchmark')
-timing<-read.table('results2.txt', header=F)
+timing<-read.table('results.txt', header=F)
+
+
 
 # Experiment Size
 dataSize = c(1000, 2000, 4000, 8000, 16000, 32000, 64000)
@@ -17,6 +19,8 @@ benchmark <- data.frame(algo1_set1 = algo1_set1,
                         algo2_set1=algo2_set1, 
                         algo2_set2=algo2_set2, 
                         algo2_set3=algo2_set3)
+
+row.names(benchmark)<-dataSize 
 
 plot(dataSize, 
      benchmark[,1], 
@@ -40,12 +44,4 @@ legend(1000,10, c("algo 1 set 1",
                   "algo 2 set 3"),
        fill=c('black', 'red', 'green', 'blue', 'brown', 'cyan'))
 
-plot(dataSize, 
-     benchmark[,1], 
-     xaxt="n", 
-     type="b", 
-     col='black',
-     xlab='Problem Size',
-     ylab='time (s)')
-axis(1, at=dataSize, las=2, cex.axis=0.7)
 
