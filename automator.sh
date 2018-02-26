@@ -2,11 +2,11 @@
 PROBLEMSIZEA=(1000 2000 4000 8000 16000 32000 64000)
 PROBLEMSIZEB=(1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 24000 25000 25000 27000 28000 29000 30000 31000 32000 64000 128000 256000)
 ALGORITHM=(-1 -2)
-DATASETS=(1 3)
+DATASETS=(1 2 3)
 
 for a in ${ALGORITHM[*]}
 do
-	for b in ${DATASETS}
+	for b in ${DATASETS[*]}
 	do
 		for c in ${PROBLEMSIZEA[*]}
 		do
@@ -15,10 +15,11 @@ do
 	done
 done
 
-for a in ${ALGORITHM[*]}
-do	
-	for c in ${PROBLEMSIZEB[*]}
-	do
-		./benchmark $a 2 $c 1
-	done
-done
+
+#for a in ${ALGORITHM[*]}
+#do	
+#	for c in ${PROBLEMSIZEB[*]}
+#	do
+#		./benchmark $a 2 $c 1
+#	done
+#done
