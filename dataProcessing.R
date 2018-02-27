@@ -1,7 +1,7 @@
 setwd('~/git/dv5_performance_benchmark')
 timing<-read.table('results.txt', header=F)
 
-
+## Eight x 3.7GHz Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz Processors, 31.9GB RAM, 54283 Bogomips Total
 
 # Experiment Size
 dataSize = c(1000, 2000, 4000, 8000, 16000, 32000, 64000)
@@ -22,19 +22,20 @@ benchmark <- data.frame(algo1_set1 = algo1_set1,
 
 row.names(benchmark)<-dataSize 
 
-plot(dataSize, 
-     benchmark[,1], 
+plot(dataSize,
+     benchmark[,1],
+     lty=1,
      xaxt="n", 
      type="b", 
-     col='black',
+     pch=5,
      xlab='Problem Size',
-     ylab='time (s)')
+     ylab='time (s), mean 20 rep')
 axis(1, at=dataSize, las=2, cex.axis=0.7)
-points(dataSize, benchmark[,2], type="b", col="red")
-points(dataSize, benchmark[,3], type="b", col="green")
-points(dataSize, benchmark[,4], type="b", col="blue")
-points(dataSize, benchmark[,5], type="b", col="brown")
-points(dataSize, benchmark[,6], type="b", col="cyan")
+points(dataSize, benchmark[,2], type="b", pch=0, lty=1)
+points(dataSize, benchmark[,3], type="b", pch=1, lty=1)
+points(dataSize, benchmark[,4], type="b", pch=4, lty=2)
+points(dataSize, benchmark[,5], type="b", pch=3, lty=2)
+points(dataSize, benchmark[,6], type="b", pch=2, lty=2)
 
 legend(1000,10, c("algo 1 set 1", 
                   "algo 1 set 2", 
@@ -42,7 +43,7 @@ legend(1000,10, c("algo 1 set 1",
                   "algo 2 set 1", 
                   "algo 2 set 2", 
                   "algo 2 set 3"),
-       fill=c('black', 'red', 'green', 'blue', 'brown', 'cyan'))
+       pch=c(5,0,1,4,3,2))
 
 #####################################################################################
 # Linear Regression Algo 1 Dataset 1
@@ -82,7 +83,7 @@ plot(dataSize,
      benchmark[,2],
      main="Raw Data Algo 1 Dataset 2",
      xaxt="n", 
-     type="p", 
+     type="b", 
      col='black',
      xlab='Problem Size',
      ylab='time (s)')
