@@ -44,4 +44,180 @@ legend(1000,10, c("algo 1 set 1",
                   "algo 2 set 3"),
        fill=c('black', 'red', 'green', 'blue', 'brown', 'cyan'))
 
+#####################################################################################
+# Linear Regression Algo 1 Dataset 1
+########
+plot(dataSize, 
+     benchmark[,1],
+     main="Raw Data Algo 1 Dataset 1",
+     xaxt="n", 
+     type="b", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Transforming
+plot(dataSize,
+     sqrt(benchmark[,1]),
+          lty=2,
+          main="Sqrt Transformed Data Algo 1 Dataset 1",
+          xaxt="n", 
+          type="p", 
+          col='black',
+          xlab='Problem Size',
+          ylab='time (sqrt(s))')
+     axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(sqrt(benchmark[,1])~dataSize)
+summary(regAnal)
+cor(sqrt(benchmark[,1]),dataSize)
+abline(regAnal, lty=4, col='blue')
+
+#####################################################################################
+# Linear Regression Algo 1 Dataset 2
+########
+plot(dataSize, 
+     benchmark[,2],
+     main="Raw Data Algo 1 Dataset 2",
+     xaxt="n", 
+     type="p", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(benchmark[,2]~dataSize)
+summary(regAnal)
+cor(benchmark[,2],dataSize)
+abline(regAnal, lty=4, col='blue')
+
+#####################################################################################
+# Linear Regression Algo 1 Dataset 3
+########
+plot(dataSize, 
+     benchmark[,3],
+     main="Raw Data Algo 1 Dataset 3",
+     xaxt="n", 
+     type="b", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Transforming
+plot(dataSize,
+     sqrt(benchmark[,3]),
+     lty=2,
+     main="Sqrt Transformed Data Algo 1 Dataset 3",
+     xaxt="n", 
+     type="p", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (sqrt(s))')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(sqrt(benchmark[,3])~dataSize)
+summary(regAnal)
+cor(sqrt(benchmark[,3]),dataSize)
+abline(regAnal, lty=4, col='blue')
+
+#####################################################################################
+# Linear Regression Algo 2 Dataset 1
+########
+plot(dataSize, 
+     benchmark[,4],
+     main="Raw Data Algo 2 Dataset 1",
+     xaxt="n", 
+     type="b", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Transforming
+plot(dataSize,
+     sqrt(benchmark[,4]),
+     lty=2,
+     main="Sqrt Transformed Data Algo 2 Dataset 1",
+     xaxt="n", 
+     type="p", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (sqrt(s))')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(sqrt(benchmark[,4])~dataSize)
+summary(regAnal)
+cor(sqrt(benchmark[,4]),dataSize)
+abline(regAnal, lty=4, col='blue')
+
+
+#####################################################################################
+# Linear Regression Algo 2 Dataset 2
+########
+plot(dataSize, 
+     benchmark[,5],
+     main="Raw Data Algo 2 Dataset 2",
+     xaxt="n", 
+     type="b", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Transforming
+plot(dataSize,
+     sqrt(benchmark[,5]),
+     lty=2,
+     main="Sqrt Transformed Data Algo 2 Dataset 2",
+     xaxt="n", 
+     type="p", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (sqrt(s))')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(sqrt(benchmark[,5])~dataSize)
+summary(regAnal)
+cor(sqrt(benchmark[,5]),dataSize)
+abline(regAnal, lty=4, col='blue')
+
+
+#####################################################################################
+# Linear Regression Algo 2 Dataset 3
+########
+plot(dataSize, 
+     benchmark[,6],
+     main="Raw Data Algo 2 Dataset 3",
+     xaxt="n", 
+     type="b", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (s)')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Transforming
+plot(dataSize,
+     sqrt(benchmark[,6]),
+     lty=2,
+     main="Sqrt Transformed Data Algo 2 Dataset 3",
+     xaxt="n", 
+     type="p", 
+     col='black',
+     xlab='Problem Size',
+     ylab='time (sqrt(s))')
+axis(1, at=dataSize, las=2, cex.axis=0.7)
+
+### Regression
+regAnal <- lm(sqrt(benchmark[,6])~dataSize)
+summary(regAnal)
+cor(sqrt(benchmark[,6]),dataSize)
+abline(regAnal, lty=4, col='blue')
+
 
