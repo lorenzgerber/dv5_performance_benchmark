@@ -5,6 +5,7 @@ timing<-read.table('results.txt', header=F)
 
 # Experiment Size
 dataSize = c(1000, 2000, 4000, 8000, 16000, 32000, 64000)
+dataSizePlot = c(1000,4000,8000,16000, 32000,64000)
 
 # Datasets
 algo1_set1<-timing[1:7,2]
@@ -50,25 +51,25 @@ legend(1000,10, c("algo 1 set 1",
 ########
 plot(dataSize, 
      benchmark[,1],
-     main="Raw Data Algo 1 Dataset 1",
+     #main="Raw Data Algo 1 Dataset 1",
      xaxt="n", 
      type="b", 
      col='black',
      xlab='Problem Size',
      ylab='time (s)')
-axis(1, at=dataSize, las=2, cex.axis=0.7)
+axis(1, at=dataSizePlot, las=2, cex.axis=0.7)
 
 ### Transforming
 plot(dataSize,
      sqrt(benchmark[,1]),
           lty=2,
-          main="Sqrt Transformed Data Algo 1 Dataset 1",
+          #main="Sqrt Transformed Data Algo 1 Dataset 1",
           xaxt="n", 
           type="p", 
           col='black',
           xlab='Problem Size',
           ylab='time (sqrt(s))')
-     axis(1, at=dataSize, las=2, cex.axis=0.7)
+     axis(1, at=dataSizePlot, las=2, cex.axis=0.7)
 
 ### Regression
 regAnal <- lm(sqrt(benchmark[,1])~dataSize)
@@ -81,13 +82,13 @@ abline(regAnal, lty=4, col='blue')
 ########
 plot(dataSize, 
      benchmark[,2],
-     main="Raw Data Algo 1 Dataset 2",
+     #main="Raw Data Algo 1 Dataset 2",
      xaxt="n", 
      type="b", 
      col='black',
      xlab='Problem Size',
      ylab='time (s)')
-axis(1, at=dataSize, las=2, cex.axis=0.7)
+axis(1, at=dataSizePlot, las=2, cex.axis=0.7)
 
 ### Regression
 regAnal <- lm(benchmark[,2]~dataSize)
